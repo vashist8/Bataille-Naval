@@ -1,23 +1,13 @@
 class Board:
-    def __init__(self):
+    def __init__(self,n):
         #empty array
-        self.__grid = [[0]*5,[0]*5,[0]*5,[0]*5,[0]*5]
+        self.__grid = [[0 for x in range(0,n)] for y in range(0,n)]
+        print(self.__grid)
 
     def modifyGrid(self,value,x,y):
-        self.value = value
-        self.x = x
-        self.y = y
+        self.__grid[x][y] = value
 
-    def display(self):
-        for line in self.__grid:
-            for column in line:
-                if column == 0:
-                    print(" . ",end=' ')
-            print()
+board1 = Board(10)
 
-
-
-w = Board()
-w.display()
 
 
