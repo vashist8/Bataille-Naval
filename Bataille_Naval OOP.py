@@ -1,7 +1,7 @@
 class Board:
     def __init__(self):
         #empty array
-        self.__grid = []
+        self.__grid = [[0]*5,[0]*5,[0]*5,[0]*5,[0]*5]
 
     def modifyGrid(self,value,x,y):
         self.value = value
@@ -17,5 +17,7 @@ class Board:
 
 
 
+w = Board()
+w.display()
 
 
