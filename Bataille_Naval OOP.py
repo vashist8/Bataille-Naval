@@ -22,3 +22,6 @@ class Board:
 
 
 board1 = Board(10)
+print()
+board1.modifyGrid(1,5,5)
+board1.display()
