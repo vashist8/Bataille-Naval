@@ -69,41 +69,74 @@ class Player:
         self._id = pid
         self.setScore(0)
         self.setNumberOfShips(5)
-        submarine = Ship("Submarine",3)
-        carrier = Ship("Carrier",5)
-        battleship = Ship("Battleship",4)
-        cruiser = Ship("Cruiser",3)
-        destoyer = Ship("Destroyer",2)
+        submarine = Ship("Submarine",3,"S")
+        carrier = Ship("Carrier",5,"C")
+        battleship = Ship("Battleship",4,"B")
+        cruiser = Ship("Cruiser",3,"R")
+        destoyer = Ship("Destroyer",2,"D")
         self.ships = [submarine,carrier,battleship,cruiser,destoyer]
 
 
 
-def isGridEmpty(board,x,y):
-    return board[x][y] == 0
+    def isGridEmpty(board,x,y):
+        return board[x][y] == 0s
 
-def promptOrientation(name):
-    print("In which orientation do you want to place your" + name + "?")
-    orientation = ""
-    while orientation != "h" or orientation != "v":
-        orientation = "Please enter h for horizontal orientation or v for vertical orientation"
+    def promptOrientation(name):
+         print("In which orientation do you want to place your" + name + "?")
+         orientation = ""
+         while orientation != "h" or orientation != "v":
+             orientation = "Please enter h for horizontal orientation or v for vertical orientation"
+             return orientation
 
-    return orientation
+    def isShipAdjacent(orientation,board,x,y):
+        if orientation == "h":
+            return board[x+1][y] ==1 or board[x-1][y] ==1
 
-def isShipAdjacent(orientation,board,x,y):
-    if orientation == "h":
-        return board[x+1][y] == 1 or board[x-1][y] == 1
-
-    if orientation == "v":
-        return  board[x][y+1] ==1 or board[x][y-1] == 1
-
+        if orientation == "v":
+            return  board[x][y+1] ==1 or board[x][y-1] == 1
 
 
 
 
-def isShipAdjacent(board,x,y):
-    return (board[x+1][y] == 1 or board[x-1][y] == 1
+
+    def isShipAdjacent1(board,x,y):
+        return board[x+1][y] == 1 or board[x-1][y] ==1
+
+
+
+# asking player where to place ships
+# preventing player to place ships outside board
+    def placeShip(self,board,x,y):
+       x = int(input("enter line: "))
+       y = int(input("enter column: "))
+
+       if x in range(10) and y in range(10) and board[x][y] ==0:
+           board[x][y] = 1
+           return board
+       # else:
+       #     print("ships placed ouside grid range. Re-enter co-ordinates")
+       #     x = int(input("enter line: "))
+       #     y = int(input("enter column: "))
+       #     board[x][y] = 1
+
+
+
 
 def main():
-    player1 = Player(1)
+
+     player1 = Player(1)
+     player2 = Player(2)
+     grid = Board(10)
+     grid.display()
+
+     while True:
+         player1.placeShip()
 
 
+
+
+
+
+
+
+main()
