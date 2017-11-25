@@ -110,7 +110,7 @@ class Player:
        x = int(input("enter line: "))
        y = int(input("enter column: "))
 
-       if x in range(10) and y in range(10) and board[x][y] ==0:
+       if x in range(n) and y in range(n) and board[x][y] ==0:
            board[x][y] = 1
            return board
        # else:
