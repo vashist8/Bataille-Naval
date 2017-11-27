@@ -109,6 +109,12 @@ def main():
         print(activeplayer.name,"plays")
         player1.setShips()
         board.display()
-        break
+        player2.setShips()
+        board.display()
+
+        if activeplayer == player1:
+            activeplayer = player2
+        else:
+            activeplayer = player1
 
 main()
