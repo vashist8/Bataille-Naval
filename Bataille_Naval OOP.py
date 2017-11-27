@@ -78,41 +78,41 @@ class Player:
 
 
 
-    def isGridEmpty(board,x,y):
-        return board[x][y] == 0s
+    # def isGridEmpty(board,x,y):
+    #     return board[x][y] == 0s
 
-    def promptOrientation(name):
+    def promptOrientation(self,name):
          print("In which orientation do you want to place your" + name + "?")
          orientation = ""
          while orientation != "h" or orientation != "v":
              orientation = "Please enter h for horizontal orientation or v for vertical orientation"
              return orientation
 
-    def isShipAdjacent(orientation,board,x,y):
-        if orientation == "h":
-            return board[x+1][y] ==1 or board[x-1][y] ==1
+    def isShipAdjacent(self,orientation,board,x,y):
+        if self.orientation == "h":
+            return self.board[x+1][y] ==1 or self.board[x-1][y] ==1
 
-        if orientation == "v":
-            return  board[x][y+1] ==1 or board[x][y-1] == 1
-
-
+        if self.orientation == "v":
+            return  self.board[x][y+1] ==1 or self.board[x][y-1] == 1
 
 
 
-    def isShipAdjacent1(board,x,y):
-        return board[x+1][y] == 1 or board[x-1][y] ==1
+
+
+    def isShipAdjacent1(self,board,x,y):
+        return self.board[x+1][y] == 1 or self.board[x-1][y] ==1
 
 
 
 # asking player where to place ships
 # preventing player to place ships outside board
-    def placeShip(self,board,x,y):
+    def placeShip(self,n,x,y):
        x = int(input("enter line: "))
        y = int(input("enter column: "))
 
-       if x in range(n) and y in range(n) and board[x][y] ==0:
-           board[x][y] = 1
-           return board
+       if x in range(n) and y in range(n) and self.board[x][y] ==0:
+           self.board[x][y] = 1
+           return self.board
        # else:
        #     print("ships placed ouside grid range. Re-enter co-ordinates")
        #     x = int(input("enter line: "))
@@ -130,7 +130,8 @@ def main():
      grid.display()
 
      while True:
-         player1.placeShip()
+         player1.promptOrientation(1)
+         player1.placeShip(10,1,2)
 
 
 
